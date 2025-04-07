@@ -7,25 +7,25 @@ if (process.argv.length < 3) {
 }
 
 const password = process.argv[2]
-const url = `mongodb+srv://fullstack:${password}@cluster0.a5qfl.mongodb.net/noteApp?retryWrites=true&w=majority`
+const url = `mongodb+srv://leonardocosta330:${password}@full-stack-open.xh829lr.mongodb.net/noteApp?retryWrites=true&w=majority&appName=full-stack-open`
 
 mongoose.set('strictQuery', false)
 
-mongoose.connect(url)
-  .then(result => {
+mongoose
+  .connect(url)
+  .then(() => {
     console.log('connected to MongoDB')
 
     if (process.argv.length === 3) {
-      Person.find({}).then(persons => {
+      Person.find({}).then((persons) => {
         console.log('phonebook:')
-        persons.forEach(person => {
+        persons.forEach((person) => {
           console.log(person.name, person.number)
         })
         mongoose.connection.close()
       })
     } else if (process.argv.length === 5) {
-      const name = p
-      rocess.argv[3]
+      const name = process.argv[3]
       const number = process.argv[4]
 
       const person = new Person({
@@ -33,7 +33,7 @@ mongoose.connect(url)
         number: number,
       })
 
-      person.save().then(result => {
+      person.save().then(() => {
         console.log(`added ${name} number ${number} to phonebook`)
         mongoose.connection.close()
       })
@@ -42,6 +42,6 @@ mongoose.connect(url)
       mongoose.connection.close()
     }
   })
-  .catch(error => {
+  .catch((error) => {
     console.log('error connecting to MongoDB:', error.message)
   })
