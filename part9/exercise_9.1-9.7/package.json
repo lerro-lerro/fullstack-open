@@ -1,0 +1,28 @@
+{
+  "name": "fullstack-part9-solution",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node build/index.js",
+    "build": "tsc",
+    "calculateBmi": "node --loader ts-node/esm src/bmiCalculator.ts",
+    "calculateExercises": "node --loader ts-node/esm src/exerciseCalculator.ts",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "express": "^4.19.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.56.0",
+    "@stylistic/eslint-plugin": "^1.2.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.6.0",
+    "eslint": "^8.56.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.0.0"
+  }
+}
